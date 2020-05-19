@@ -78,7 +78,8 @@ generateNextWord [x1,x2] list =  getThird ((result) !! idx)
 getThird ((x1, x2, x3), prob) = x3
 
 
-
+--- generates a list of strings that form the desired text given the trigrams probability pairs and number of desired words.
+--- the answer is accumulated in list until we reach the appropriate length.
 generateTextHelper list triProb n|((n+2)==length list)=list
 generateTextHelper list triProb n = generateTextHelper (list ++ [generateNextWord ([list !!((length list) -2),list !!((length list) -1)]) triProb]) triProb n
 
